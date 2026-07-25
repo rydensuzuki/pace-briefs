@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PACE — 2026-07-25</title>
+<style>
+:root {
+  --bg:#f3f4f7; --surface:#fff; --surface-2:#f7f8fa; --ink:#171a21; --ink-2:#545b68; --ink-3:#838b99;
+  --line:#e4e7ec; --line-2:#eef0f3; --accent:#e8620d; --accent-soft:#fbe8d8;
+  --fit:#2f7fb8; --fatigue:#e8850c; --good:#2e9e6b; --caution:#d99413; --warn:#d0492a;
+  --swim:#2f86bf; --bike:#d98218; --run:#d8543a; --radius:12px;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace; --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(20,24,32,.04),0 4px 16px rgba(20,24,32,.05);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0d1015; --surface:#161a21; --surface-2:#1c212a; --ink:#e9ebef; --ink-2:#a3aab7; --ink-3:#727a89;
+  --line:#262c36; --line-2:#20252e; --accent:#f5772a; --accent-soft:#3a2416;
+  --fit:#57a9dd; --fatigue:#f0a341; --good:#46b884; --caution:#e5ab3c; --warn:#e8694a;
+  --swim:#56a4d8; --bike:#eea24a; --run:#eb7358; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.3);
+}}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:28px 20px 64px} .tnum{font-variant-numeric:tabular-nums} .muted{color:var(--ink-3)}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.22em;font-weight:600;color:var(--accent);text-transform:uppercase}
+h1{font-size:clamp(26px,5vw,34px);line-height:1.08;margin:4px 0 0;letter-spacing:-.02em;font-weight:700}
+.datemeta{color:var(--ink-2);font-size:14px;margin-top:2px}
+.countdown{margin-left:auto;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 12px;box-shadow:var(--shadow)}
+.countdown .big{font-family:var(--mono);font-weight:600;font-size:18px} .countdown .lbl{font-size:11px;color:var(--ink-2);line-height:1.15}
+.phase-pill{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:3px 7px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;margin-top:16px}
+.card>h2{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin:0 0 14px;font-weight:600}
+.card>h2 .seq{font-family:var(--mono);color:var(--accent);font-size:11px;margin-right:8px}
+.tldr{border-left:3px solid var(--accent)} .tldr p{margin:0 0 10px;font-size:16px;line-height:1.55} .tldr p:last-child{margin-bottom:0}
+.sec-label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin:22px 4px 10px;font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} @media(max-width:620px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 14px;box-shadow:var(--shadow)}
+.tile .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+.status{width:7px;height:7px;border-radius:50%;display:inline-block} .status.good{background:var(--good)} .status.caution{background:var(--caution)} .status.warn{background:var(--warn)} .status.muted{background:var(--ink-3)}
+.tile .v{font-family:var(--mono);font-weight:600;font-size:25px;margin-top:6px;display:flex;align-items:baseline;gap:4px} .tile .v .u{font-size:12px;color:var(--ink-3);font-weight:500}
+.tile .sub{font-size:11.5px;color:var(--ink-2);margin-top:2px} .spark{margin-top:8px;height:26px;width:100%;display:block}
+.wk{display:flex;gap:13px;padding:11px 0;border-top:1px solid var(--line-2)} .wk:first-of-type{border-top:0;padding-top:2px}
+.chip{flex:none;width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-size:20px}
+.chip.swim{background:color-mix(in srgb,var(--swim) 15%,transparent)} .chip.bike{background:color-mix(in srgb,var(--bike) 15%,transparent)}
+.chip.run{background:color-mix(in srgb,var(--run) 15%,transparent)} .chip.other{background:var(--surface-2)}
+.wk .title{font-weight:600;font-size:15px} .wk .metrics{color:var(--ink-2);font-size:13px;margin-top:3px}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:5px;margin-left:6px}
+.tag.planned{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
+.section-prose p{margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--ink-2)} .section-prose{margin-top:6px}
+.divider-lite{border-top:1px solid var(--line-2);margin:14px 0 0}
+.sig{display:grid;grid-template-columns:repeat(3,1fr);gap:12px} @media(max-width:620px){.sig{grid-template-columns:1fr 1fr}}
+.cell{border:1px solid var(--line);border-radius:9px;padding:12px 13px;background:var(--surface-2)}
+.cell .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)} .cell .v{font-family:var(--mono);font-weight:600;font-size:22px;margin-top:4px} .cell .d{font-size:12px;color:var(--ink-2);margin-top:3px}
+.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin:2px 0 12px;font-size:12.5px;color:var(--ink-2)} .chart-legend .li{display:flex;align-items:center;gap:6px}
+.swatch{width:11px;height:11px;border-radius:3px} .swatch.line{height:3px;width:16px}
+svg text{fill:var(--ink-3);font-family:var(--mono)}
+footer{text-align:center;color:var(--ink-3);font-size:12px;margin-top:26px;font-family:var(--mono);letter-spacing:.04em}
+</style></head><body><div class="wrap">
+<header><div>
+<div class="brand">PACE</div>
+<h1>Morning Brief</h1><div class="datemeta">Saturday, July 25, 2026</div>
+</div><div class="countdown"><div><div class="big tnum">56<span style="font-size:12px;color:var(--ink-3)"> days</span></div><div class="lbl">to IRONMAN Maryland<br>2026-09-19 · <span class="phase-pill">Peak Build</span></div></div></div></header>
+
+<div class="card tldr"><p>Hill sprints were sharp yesterday, but you&#x27;re heading into today&#x27;s 4h45 ride at TSB -38, the deep end of a sustained fatigue stretch. Execution, not effort, is what to watch today.</p></div>
+
+<div class="sec-label">This morning · Readiness</div>
+<div class="tiles"><div class="tile"><div class="k"><span class="status muted"></span>Sleep</div><div class="v tnum">—<span class="u">h</span></div><div class="sub">quality —/5 · score —</div><svg class="spark" id="sp-sleep" viewBox="0 0 120 26" preserveAspectRatio="none"></svg></div><div class="tile"><div class="k"><span class="status muted"></span>HRV</div><div class="v tnum">—<span class="u">ms</span></div><div class="sub">overnight</div><svg class="spark" id="sp-hrv" viewBox="0 0 120 26" preserveAspectRatio="none"></svg></div><div class="tile"><div class="k"><span class="status good"></span>Resting HR</div><div class="v tnum">58<span class="u">bpm</span></div><div class="sub">this morning</div><svg class="spark" id="sp-rhr" viewBox="0 0 120 26" preserveAspectRatio="none"></svg></div><div class="tile"><div class="k"><span class="status warn"></span>Form (TSB)</div><div class="v tnum">-37.9<span class="u"></span></div><div class="sub">fitness − fatigue</div><svg class="spark" id="sp-tsb" viewBox="0 0 120 26" preserveAspectRatio="none"></svg></div></div>
+
+<div class="card"><h2><span class="seq">01</span>Yesterday · what happened</h2>
+<div class="wk"><div class="chip run">🏃</div><div class="body"><div class="title">Late to movies Run</div><div class="metrics tnum">0.1 mi · 1 min · 10:56/mi · 112 bpm · load 1</div></div></div><div class="wk"><div class="chip run">🏃</div><div class="body"><div class="title">Run: 37m Hill Sprints (6x30s)</div><div class="metrics tnum">3.3 mi · 36 min · 11:17/mi · 145 bpm · load 63</div></div></div><div class="section-prose divider-lite"><p>The &quot;Late to movies&quot; run was 36 seconds of noise, not a workout — ignore the numbers on that one.</p><p>Hill Sprints: reps 2-5 held tight together (5:25-6:15/mi) with normal decoupling, only 0.9% slower rep 6 vs rep 1. Clean, controlled execution.</p></div></div>
+
+<div class="card"><h2><span class="seq">02</span>The road ahead</h2>
+<div class="wk"><div class="chip bike">🚴</div><div class="body"><div class="title">Bike: 4h45m Long Ride <span class="tag planned">today</span></div><div class="metrics tnum">285 min · load 205</div></div></div><div class="wk"><div class="chip run">🏃</div><div class="body"><div class="title">Run: 2.0mi Brick (off the bike) <span class="tag planned">today</span></div><div class="metrics tnum">22 min · 2 mi · load 20</div></div></div><div class="wk"><div class="chip other">🏋️</div><div class="body"><div class="title">Strength: Push Day <span class="tag planned">tomorrow</span></div><div class="metrics tnum">30 min · load 10</div></div></div><div class="wk"><div class="chip swim">🏊</div><div class="body"><div class="title">Swim: 45m Open Water LONG (4000yrd) <span class="tag planned">tomorrow</span></div><div class="metrics tnum">101 min · 4000 yd · load 93</div></div></div><div class="section-prose divider-lite"><p>Today: 4h45 Z2 long ride, 213 load — the nutrition and saddle-time rehearsal for race day, straight into a 2mi brick run. You go in at TSB -38; that&#x27;s the plan, not a warning, but it will be a long day on tired legs. Tomorrow: Push Day strength (lowest priority) plus a 4000yd open water swim with a 2805yd unbroken main set — a rehearsal for the ~4220yd race swim.</p></div></div>
+
+<div class="card"><h2><span class="seq">03</span>Form &amp; fatigue</h2>
+<div class="chart-legend">
+<span class="li"><span class="swatch" style="background:color-mix(in srgb,var(--fit) 26%,transparent)"></span>Fitness (CTL)</span>
+<span class="li"><span class="swatch line" style="background:var(--fatigue)"></span>Fatigue (ATL)</span>
+<span class="li"><span class="swatch" style="background:var(--warn)"></span>Form (TSB) &lt; 0</span>
+<span class="li muted">▚ projected</span></div>
+<svg id="pmc" viewBox="0 0 700 300" width="100%" role="img" aria-label="Fitness, fatigue and form over time with projection."></svg>
+<div class="section-prose"><p>CTL has climbed steadily, 77 to 93 over 43 days — real fitness gain. But TSB has lived between -20 and -46 since early July and sits at -37.9 this morning, a long stretch buried in fatigue. Resting HR is 58 today, above your recent 52-55 baseline, and sleep/HRV haven&#x27;t synced yet, so that&#x27;s an incomplete picture worth watching once it lands.</p></div></div>
+
+<div class="card"><h2><span class="seq">04</span>Fitness signals</h2>
+<div class="sig"><div class="cell"><div class="k">Fitness (CTL)</div><div class="v tnum">93</div><div class="d">+16 over 43d</div></div><div class="cell"><div class="k">Run eFTP</div><div class="v tnum">238</div><div class="d">238 vs set 235</div></div><div class="cell"><div class="k">Bike eFTP</div><div class="v tnum">143</div><div class="d">143 vs set 160 (-11%)</div></div></div>
+<div class="section-prose divider-lite"><p>CTL up nicely across the window — the build is landing. VO2max flat at 51, no change. Run eFTP (237.6) tracks close to set FTP (235), consistent. Ride eFTP (142.5) sits well below set FTP (160), an 11% gap that may be overstating intensity and load on every ride, including today&#x27;s.</p></div></div>
+
+<div class="card"><h2><span class="seq">05</span>Flag for coach</h2>
+<div class="section-prose" style="margin-top:0"><p>Ride set FTP (160) is well above current eFTP (142.5) — likely inflating IF/load on rides, worth a look before the next block.</p><p>TSB has held between -20 and -46 for three straight weeks, currently -37.9 heading into the season&#x27;s longest ride.</p><p>Resting HR up to 58 this morning vs recent 52-55 baseline, with sleep/HRV not yet synced — worth a check once data lands.</p></div></div>
+
+<footer>— PACE · coach owns the plan —</footer>
+</div>
+<script id="pace-data" type="application/json">{"sleep": [8.2, 5.2, 7.0, 6.0, 6.8, 8.2, 6.7, 6.1, 8.9, 6.7], "hrv": [60.0, 60.0, 62.0, 60.0, 50.0, 58.0, 56.0, 61.0, 59.0, 55.0], "rhr": [54, 54, 54, 57, 53, 53, 52, 53, 54, 58], "tsb": [-34.2, -27.1, -38.9, -24.2, -40.0, -34.4, -34.3, -24.1, -26.7, -37.9], "pmc": [["06-25", 66.9, 44.0, 22.9, 0], ["06-26", 65.7, 40.4, 25.3, 0], ["06-27", 68.7, 60.4, 8.2, 0], ["06-28", 67.6, 55.3, 12.2, 0], ["06-29", 70.7, 74.7, -4.0, 0], ["06-30", 70.2, 71.3, -1.1, 0], ["07-01", 71.2, 76.8, -5.6, 0], ["07-02", 70.3, 70.9, -0.6, 0], ["07-03", 69.7, 67.6, 2.1, 0], ["07-04", 71.8, 79.7, -7.9, 0], ["07-05", 71.3, 75.5, -4.3, 0], ["07-06", 74.6, 93.9, -19.3, 0], ["07-07", 73.7, 86.0, -12.3, 0], ["07-08", 73.7, 84.4, -10.7, 0], ["07-09", 73.2, 80.3, -7.1, 0], ["07-10", 73.1, 78.7, -5.6, 0], ["07-11", 77.5, 102.7, -25.2, 0], ["07-12", 77.1, 97.5, -20.4, 0], ["07-13", 83.2, 129.4, -46.2, 0], ["07-14", 82.9, 121.5, -38.6, 0], ["07-15", 83.3, 118.4, -35.1, 0], ["07-16", 84.1, 118.3, -34.2, 0], ["07-17", 83.6, 110.7, -27.1, 0], ["07-18", 86.9, 125.8, -38.9, 0], ["07-19", 84.8, 109.0, -24.2, 0], ["07-20", 88.9, 128.9, -40.0, 0], ["07-21", 88.9, 123.3, -34.4, 0], ["07-22", 89.8, 124.1, -34.3, 0], ["07-23", 88.6, 112.7, -24.1, 0], ["07-24", 89.8, 116.5, -26.7, 0], ["07-25", 93.0, 130.9, -37.9, 0], ["07-26", 93.3, 127.2, -34.0, 1], ["07-27", 95.2, 134.0, -38.7, 1], ["07-28", 95.9, 132.5, -36.6, 1], ["07-29", 96.8, 132.7, -35.9, 1], ["07-30", 96.0, 123.3, -27.3, 1], ["07-31", 96.5, 122.9, -26.3, 1], ["08-01", 100.2, 139.9, -39.7, 1], ["08-02", 99.8, 132.3, -32.6, 1], ["08-03", 100.7, 133.2, -32.5, 1], ["08-04", 100.3, 126.7, -26.4, 1], ["08-05", 100.4, 123.7, -23.3, 1], ["08-06", 99.2, 114.0, -14.8, 1], ["08-07", 99.2, 111.9, -12.7, 1], ["08-08", 100.8, 119.1, -18.3, 1], ["08-09", 101.1, 118.5, -17.4, 1], ["08-10", 103.3, 128.8, -25.5, 1], ["08-11", 103.8, 128.1, -24.3, 1], ["08-12", 104.7, 130.2, -25.4, 1], ["08-13", 103.7, 121.1, -17.4, 1], ["08-14", 104.2, 121.6, -17.4, 1], ["08-15", 108.6, 143.8, -35.2, 1]]}</script>
+<script>
+const D=JSON.parse(document.getElementById('pace-data').textContent);
+const css=k=>getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+function spark(id,vals,color,inv){
+  const svg=document.getElementById(id); if(!svg||!vals||vals.length<2)return;
+  const W=120,H=26,p=3,mn=Math.min(...vals),mx=Math.max(...vals),r=(mx-mn)||1;
+  const x=i=>p+i*(W-2*p)/(vals.length-1), y=v=>{const t=(v-mn)/r;return inv?p+t*(H-2*p):H-p-t*(H-2*p);};
+  const pts=vals.map((v,i)=>x(i).toFixed(1)+','+y(v).toFixed(1));
+  svg.innerHTML=`<polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${x(vals.length-1)}" cy="${y(vals[vals.length-1])}" r="2.4" fill="${color}"/>`;
+}
+function pmc(){
+  const svg=document.getElementById('pmc'); const P=D.pmc; if(!svg||!P||P.length<2)return;
+  const W=700,H=300,L=38,R=14,T=14,mid=200,bTop=214,bH=72,bBase=bTop+bH/2,n=P.length;
+  const loMax=Math.max(...P.map(d=>d[2]))*1.02, loMin=Math.min(...P.map(d=>d[1]))*0.9;
+  const x=i=>L+i*(W-L-R)/(n-1), yL=v=>T+(loMax-v)/(loMax-loMin)*(mid-T);
+  const tMax=Math.max(50,...P.map(d=>Math.abs(d[3]))), yT=v=>bBase-(v/tMax)*(bH/2);
+  const fit=css('--fit'),fat=css('--fatigue'),warn=css('--warn'),line=css('--line'),ink3=css('--ink-3');
+  const ti=P.findIndex(d=>d[4]===1); const cut=ti<0?n:ti; let s='';
+  if(ti>=0){s+=`<rect x="${x(cut-1).toFixed(1)}" y="${T}" width="${(W-R-x(cut-1)).toFixed(1)}" height="${bTop+bH-T}" fill="${ink3}" opacity="0.06"/>`;
+    s+=`<line x1="${x(cut-1).toFixed(1)}" y1="${T}" x2="${x(cut-1).toFixed(1)}" y2="${bTop+bH}" stroke="${ink3}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>`;
+    s+=`<text x="${x(cut-1)+4}" y="${T+11}" font-size="9" opacity="0.7">today</text>`;}
+  [loMin,(loMin+loMax)/2,loMax].forEach(v=>{const yy=yL(v).toFixed(1);s+=`<line x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" stroke="${line}" stroke-width="1"/><text x="${L-6}" y="${(+yy+3)}" font-size="9" text-anchor="end">${Math.round(v)}</text>`;});
+  const ctl=P.map((d,i)=>x(i).toFixed(1)+','+yL(d[1]).toFixed(1));
+  s+=`<polygon points="${x(0)},${mid} ${ctl.join(' ')} ${x(n-1)},${mid}" fill="${fit}" opacity="0.16"/>`;
+  const seg=(f,col,w)=>{const a=P.slice(0,cut).map((d,i)=>x(i).toFixed(1)+','+yL(d[f]).toFixed(1));
+    const b=P.slice(cut>0?cut-1:0).map((d,i)=>x((cut>0?cut-1:0)+i).toFixed(1)+','+yL(d[f]).toFixed(1));
+    s+=`<polyline points="${a.join(' ')}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linejoin="round"/>`;
+    s+=`<polyline points="${b.join(' ')}" fill="none" stroke="${col}" stroke-width="${w}" stroke-dasharray="4 3" opacity="0.7" stroke-linejoin="round"/>`;};
+  seg(1,fit,2.4); seg(2,fat,2);
+  s+=`<line x1="${L}" y1="${bBase}" x2="${W-R}" y2="${bBase}" stroke="${line}" stroke-width="1.5"/><text x="${L-6}" y="${bBase+3}" font-size="9" text-anchor="end">0</text>`;
+  const bw=(W-L-R)/n*0.6;
+  P.forEach((d,i)=>{const yv=yT(d[3]),h=Math.abs(yv-bBase);s+=`<rect x="${(x(i)-bw/2).toFixed(1)}" y="${Math.min(yv,bBase).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h,0.5).toFixed(1)}" rx="1.5" fill="${warn}" opacity="${d[4]?0.4:0.9}"/>`;});
+  s+=`<text x="${W-R}" y="${bTop+bH+2}" font-size="9" text-anchor="end" opacity="0.8">Form (TSB) — deeper = more fatigued</text>`;
+  P.forEach((d,i)=>{if(i%7===0||i===n-1)s+=`<text x="${x(i).toFixed(1)}" y="${H-3}" font-size="9" text-anchor="middle">${d[0]}</text>`;});
+  svg.innerHTML=s;
+}
+function draw(){spark('sp-sleep',D.sleep,css('--caution'));spark('sp-hrv',D.hrv,css('--good'));spark('sp-rhr',D.rhr,css('--good'));spark('sp-tsb',D.tsb,css('--warn'),true);pmc();}
+draw();
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',draw);
+</script></body></html>
